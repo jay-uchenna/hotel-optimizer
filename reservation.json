@@ -1,0 +1,23 @@
+ {
+  "roomTypes": [1, 2],
+  "rooms": [{"id": 1, "roomType": 1},
+            {"id": 2, "roomType": 1},
+            {"id": 3, "roomType": 1},
+            {"id": 4, "roomType": 2}],
+  "reservations": [{"reservationId": 1,
+                    "roomType": 1,
+                    "startDate": "2019-05-10",
+                    "endDate": "2019-05-15"},
+                   {"reservationId": 2,
+                    "roomType": 1,
+                    "startDate": "2019-05-12",
+                    "endDate": "2019-05-17"},
+                   {"reservationId": 3,
+                    "roomType": 1,
+                    "startDate": "2019-05-15",
+                    "endDate": "2019-05-17"},
+                   {"reservationId": 4,
+                    "roomType": 2,
+                    "startDate": "2019-05-8",
+                    "endDate": "2019-05-20"}]
+}
