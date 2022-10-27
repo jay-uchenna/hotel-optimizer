@@ -21,16 +21,11 @@ using namespace std::chrono;
 //converts string date to integer
 int convertStrDatToInt(std::string date)
 {
-    //check if days are double or single digits
+    //check if day and month are double or single digits
     //if single change from single to double
-    //eg 2019-05-8 will become 2019-05-08
-    if(date.size() == 9)
-    {
-        char temp = date[8];
-        date.pop_back();
-        date.push_back('0');
-        date.push_back(temp);
-    }
+    //eg 2019-5-8 will become 2019-05-08
+    if(date[6] == '-') date[4] = '0';
+    if(date[date.size() - 2] == '-') date[date.size() - 2] = '0';
     //remove all '-' from string
     date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
     //convert to inter and return
@@ -131,8 +126,14 @@ void printOrders(const std::map<RM_ID_INT, std::map<END_DATE_INT,Reservation>>& 
 
 void printErrors(const std::vector<const OrderExection>& noRoomForTheseOrders)
 {
+    int k = 0;
+    std::cout << "\nno room of required type available for the period of stay of these reservation IDs:\n";
     for(const OrderExection&  i : noRoomForTheseOrders)
-        std::cout << "reservations ID: " << i.ID() << " " << i.what();
+    {
+        std::cout << i.ID() << " ";
+        k++;
+        if ((k%11) == 0) std::cout << "\n";
+    }
 }
 
 
